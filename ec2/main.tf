@@ -18,6 +18,7 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   subnet_id = data.terraform_remote_state.this.outputs.public_subnets[0]
+  
   tags = {
     Name = "HelloWorld"
     managed_by = "terraform"
